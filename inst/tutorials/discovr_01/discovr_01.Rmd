@@ -84,7 +84,7 @@ By for now and good luck - you'll be amazing!
 
 * The tutorials are self-contained (you practice code in code boxes). However, so you get practice at working in `r rstudio()` I strongly recommend that you create an Quarto file within an `r rstudio()` project and practice everything you do in the tutorial in the Quarto file, make notes on things that confused you or that you want to remember, and save it. Within this Quarto document you will need to load the relevant packages and data. 
 
-![](https://youtu.be/mqT7c17tofE)
+![](https://youtu.be/FhoYCsZttGc)
 
 ### Packages
 
@@ -193,7 +193,7 @@ The function takes three named arguments:
 
 *	[x]{.alt} is for specifying the name of the variable for which you want to compute a mean. You'd replace [variable_name]{.alt} with the name of the actual variable for which you want the mean score.
 *	[Trim]{.alt} is an argument that determines by how much you trim the scores before computing the mean. The default is [Trim = 0]{.alt}, which include all scores, but you can set another value, such as [Trim = 5]{.alt}, which will trim 5% of scores from both extremes of the scores before computing the mean.
-* [na.rm]{.alt} is an argument that sets whether to remove missing values. The default of [na.rm = FALSE]{.alt} will not remove them and will lead to an error if your data has missing values. To remove them you would need to include  [na.rm = TRUE]{.alt}.
+* [na.rm]{.alt} is an argument that sets whether to remove missing values. The default of [na.rm = TRUE]{.alt} removes them, but you can not remove them by specifying [na.rm = FALSE]{.alt}.
 
 Don't worry too much about understanding what the arguments do for now, we'll come back to this function in a later tutorial. Figure 3 maps this process of setting arguments within functions to ticking check boxes in a dialog box. In this imaginary statistics software, we have selected a menu called 'mean' that opens the dialog box in the figure. This action is comparable to typing `mean()`: it activates the function, but if we were to click *OK* nothing would happen because we haven't told the computer which variable to compute the mean on. Imagine I've dragged the variable **songs_written** to the space labelled *Variable:*. This is similar to assigning the variable **songs_written** to the [x]{.alt} argument within the function (i.e., `mean(x = songs_written)`)
 
@@ -203,7 +203,7 @@ Having selected the variable, two options are available: the first determines wh
 mean(x = songs_written)
 ```
 
-We don't need to write [trim = 0, na.rm = FALSE]{.alt} explicitly within the function because these are the defaults values that the function will use. However, we could change these defaults by changing these arguments. Going back to our imaginary dialog box, the right side of Figure 2 shows that same variable is selected (**songs_written**), but this time the user has selected the option for removing missing values, which equates to typing [na.rm = TRUE]{.alt} into the function. This equates to executing
+We don't need to write [trim = 0, na.rm = FALSE]{.alt} explicitly within the function because these are the defaults values that the function will use. However, we could change these defaults by changing these arguments. Going back to our imaginary dialog box, the right side of Figure 2 shows that same variable is selected (**songs_written**), but this time the user has selected the option for removing missing values, which equates to typing [na.rm = TRUE]{.alt} into the function. This equetes to executing
 
 ```{r, eval=FALSE}
 mean(x = songs_written, na.rm = TRUE)
