@@ -38,12 +38,11 @@ Remember to load these packages:
 ```{r}
 #| eval: false
 
-library(dplyr)
-library(ggplot2)
-
 library(broom)
 library(broom.mixed)
-library(datawizard)
+library(magrittr)
+library(dplyr)
+library(ggplot2)
 library(lme4)
 library(lmerTest)
 
