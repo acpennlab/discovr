@@ -103,7 +103,7 @@ By for now and good luck - you'll be amazing!
 
 * The tutorials are self-contained (you practice code in code boxes). However, so you get practice at working in `r rstudio()` I strongly recommend that you create an Quarto document within an `r rstudio()` project and practice everything you do in the tutorial in the Quarto document, make notes on things that confused you or that you want to remember, and save it. Within this Quarto document you will need to load the relevant packages and data. 
 
-![](https://youtu.be/mqT7c17tofE)
+![](https://youtu.be/FhoYCsZttGc)
 
 ### Packages
 
@@ -129,11 +129,11 @@ It also uses these `tidyverse` packages [@R-tidyverse; @tidyverse2019]: `dplyr` 
 
 There are (broadly) two styles of coding:
 
-1. **Explicit**: Using this style you declare the package when using a function: `package::function()`. For example, if I want to use the `mutate()` function from the package `dplyr`, I will type `dplyr::mutate()`. If you adopt an explicit style, you don't need to load packages at the start of your Quarto document (although see below for some exceptions).
+1. **Verbose**: Using this style you declare the package when using a function: `package::function()`. For example, if I want to use the `mutate()` function from the package `dplyr`, I will type `dplyr::mutate()`. If you adopt verbose style, you don't need to load packages at the start of your Quarto document (although see below for some exceptions).
 
 2. **Concise**: Using this style you load all of the packages at the start of your Quarto document using `library(package_name)`, and then refer to functions without their package. For example, if I want to use the `mutate()` function from the package `dplyr`, I will use `library(dplyr)` in my first code chunk and type the function as `mutate()` when I use it subsequently.
 
-Coding style is a personal choice. The [Google `r rproj()` style guide](https://google.github.io/styleguide/Rguide.html) and [tidyverse style guide](https://style.tidyverse.org/) recommend an explicit style, and I use it in teaching materials for two reasons (1) it helps you to remember which functions come from which packages, and (2) it prevents clashes resulting from using functions from different packages that have the same name. However, even with this style it makes sense to load `tidyverse` because the `dplyr` and `ggplot2` packages contain functions that are often used within other functions and in these cases explicit code is difficult to read. Also, no-one wants to write `ggplot2::` before every function from `ggplot2`.
+Coding style is a personal choice. The [Google `r rproj()` style guide](https://google.github.io/styleguide/Rguide.html) and [tidyverse style guide](https://style.tidyverse.org/) recommend a verbose style, and I use it in teaching materials for two reasons (1) it helps you to remember which functions come from which packages, and (2) it prevents clashes resulting from using functions from different packages that have the same name. However, even with this style it makes sense to load `tidyverse` because the `dplyr` and `ggplot2` packages contain functions that are often used within other functions and in these cases the verbose style is difficult to read. Also, no-one wants to write `ggplot2::` before every function from `ggplot2`.
 
 You can use either style in this tutorial because all packages are pre-loaded. If working outside of the tutorial, load the `tidyverse` package (and any others if you're using a concise style) at the beginning of your Quarto document:
 
@@ -517,7 +517,7 @@ gog_afx_tbl <- goggles_afx$anova_table
 ```
 
 <div class="reportbox">
-  `r pencil()` **Report**`r rproj()`
+  `r pencil()` **Report it!**
   
 There was a significant effects of the type of face used, `r report_afx(gog_afx_tbl, row = 1)`, and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 2)`. However, these effects were superseded by a significant interaction between the type of face being rated and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 3)`. This interaction suggests that the effect of alcohol is moderated by the type of face being rated (and vice versa). Based on the means (see plot) this interaction supports the 'beer-googles' hypothesis: when no alcohol is consumed symmetric faces were rated as more attractive than asymmetric faces but this difference diminishes as more alcohol is consumed.
 </div>
@@ -778,7 +778,7 @@ There are two key effects here:
 To sum up, the significant interaction is being driven by  alcohol consumption (any dose compared to placebo, and high dose compared to low) affecting ratings of unattractive face stimuli significantly more than it affects ratings of attractive face stimuli.
 
 <div class="reportbox">
-  `r pencil()` **Report**`r rproj()`
+  `r pencil()` **Report it!**
   
 There was a significant effects of the type of face used, `r report_afx(gog_afx_tbl, row = 1)`, and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 2)`. However, these effects were superseded by a significant interaction between the type of face being rated and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 3)`. Contrasts suggested that the difference between ratings of symmetric and asymmetric faces was significantly smaller after any dose of alcohol compared to no alcohol, $\hat{b}$ = `r report_pars(goggles_par, row = 5)`, and became smaller still when comparing a high- to a low-dose of alcohol, $\hat{b}$ = `r report_pars(goggles_par, row = 6)`. These effects support the 'beer-googles' hypothesis: when no alcohol is consumed symmetric faces were rated as more attractive than asymmetric faces but this difference diminishes as more alcohol is consumed.
 </div>
@@ -902,7 +902,7 @@ gog_se <- emmeans::joint_tests(goggles_afx, "alcohol")
 ```
 
 <div class="reportbox">
-  `r pencil()` **Report**`r rproj()`
+  `r pencil()` **Report it!**
   
 There was a significant effects of the type of face used, `r report_afx(gog_afx_tbl, row = 1)`, and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 2)`. However, these effects were superseded by a significant interaction between the type of face being rated and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 3)`. Simple effects analysis revealed that symmetric faces were rated as significant more attractive than asymmetric faces after no alcohol, `r report_se(gog_se, row = 1)`, and a low dose, `r report_se(gog_se, row = 2)`, but were rated comparably after a high dose of alcohol, `r report_se(gog_se, row = 3)`. These effects support the 'beer-googles' hypothesis: the standard tendency to rate symmetric faces as more attractive than asymmetric faces was present at low doses and no alcohol, but was eliminated by a high dose of alcohol.
 </div>
@@ -999,14 +999,14 @@ The bottom of the output shows significance tests of bias. These tests suggest t
 
 #### `r alien()` Alien coding challenge
 
-Remember from previous tutorials that to get a summary of an existing model like [goggles_lm]{.alt} that uses heteroscedasticity-consistent standard errors (i.e. robust significance tests and confidence intervals), we put the model into `model_parameters()` and set [vcov = \"HC4\"]{.alt}. Try this in the code box:
+Remember from previous tutorials that to get a summary of an existing model like [goggles_lm]{.alt} that uses heteroscedasticity-consistent standard errors (i.e. robust significance tests and confidence intervals), we put the model into `model_parameters()` and set [vcov = TRUE, vcov.type = \"HC4\", digits = 3]{.alt}. Try this in the code box:
 
 ```{r goggles_hc4, exercise = TRUE, exercise.lines = 3, exercise.setup = "goggles_con_setup"}
 
 ```
 
 ```{r goggles_hc4-solution}
-parameters::model_parameters(goggles_lm, vcov = "HC4") |> 
+parameters::model_parameters(goggles_lm, vcov = TRUE, vcov.type = "HC4", digits = 3) |> 
   knitr::kable(digits = 3) 
 ```
 
@@ -1099,7 +1099,7 @@ gog_os <- goggles_afx |>
 The effect sizes are slightly smaller than (as we'd expect) using omega-squared. The interaction effect now explains about 25% of variation in attractiveness ratings.
 
 <div class="reportbox">
-  `r pencil()` **Report**`r rproj()`
+  `r pencil()` **Report it!**
   
 There was a significant effects of the type of face used, `r report_afx(gog_afx_tbl, row = 1)`, `r report_es(gog_os, col = "Omega2_partial", row = 1)`, and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 2)`, `r report_es(gog_os, col = "Omega2_partial", row = 2)`. However, these effects were superseded by a significant interaction between the type of face being rated and the dose of alcohol, `r report_afx(gog_afx_tbl, row = 3)`, `r report_es(gog_os, col = "Omega2_partial", row = 3)`. This interaction suggests that the effect of alcohol is moderated by the type of face being rated (and vice versa). Based on the means (see plot) this interaction supports the 'beer-googles' hypothesis: when no alcohol is consumed symmetric faces were rated as more attractive than asymmetric faces but this difference diminishes as more alcohol is consumed.
 </div>
@@ -1481,7 +1481,7 @@ If you used `lm()` to fit the model, use the code box to get tests for the param
 ```
 
 ```{r xbox_hc4-solution}
-parameters::model_parameters(xbox_lm, vcov = "HC4") |> 
+parameters::model_parameters(xbox_lm, vcov = TRUE, vcov.type = "HC4") |> 
   knitr::kable(digits = 3)
 ```
 
